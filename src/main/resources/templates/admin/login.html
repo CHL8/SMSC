@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>登录</title>
     <meta charset="utf-8">
@@ -11,7 +11,7 @@
 <!-- 设置背景图片 -->
 <body style="background:#fbf8ef;background-size:100%;">
 <div class="container">
-    <div class="alert alert-danger text-center">账号或密码错误，请重新输入！</div>
+    <div class="alert alert-danger text-center" th:text="${msg}"></div>
     <form class="form-horizontal" action="login" method="post" style="margin-top:15%;">
         <h2 class="text-center">登录后台</h2>
         <div class="form-group">

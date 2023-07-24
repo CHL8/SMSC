@@ -4,4 +4,7 @@
 <mapper namespace="com.hp.mapper.AdminsMapper">
 
 
+    <select id="login" resultType="com.hp.pojo.Admins">
+        select * from admins where username=#{username} and password=#{password}
+    </select>
 </mapper>
