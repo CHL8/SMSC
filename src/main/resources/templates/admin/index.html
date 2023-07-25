@@ -11,9 +11,9 @@
 
 	<br><br>
 	
-	<div class="alert alert-success" role="alert">登录成功！</div>
+	<div class="alert alert-success" role="alert" th:if="${msg!=null}" th:text="${msg}"></div>
 	<nav th:replace="~{admin/header::navs}"></nav>
-	<div th:replace="~{admin/type_list::type}"></div>
+	<div th:replace="${session.view}::container"></div>
 </div>	
 </body>
 </html>

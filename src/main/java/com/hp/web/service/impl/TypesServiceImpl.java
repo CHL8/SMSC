@@ -16,4 +16,24 @@ public class TypesServiceImpl implements TypesService {
     public List<Types> getAll() {
         return typesMapper.getAll();
     }
+
+    @Override
+    public int add(Types types) {
+        return typesMapper.add(types);
+    }
+
+    @Override
+    public int del(Integer id) {
+        return typesMapper.del(id);
+    }
+
+    @Override
+    public Types getById(Integer id) {
+        return typesMapper.getById(id);
+    }
+
+    @Override
+    public int update(Types types) {
+        return typesMapper.update(types);
+    }
 }
