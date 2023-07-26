@@ -20,7 +20,13 @@ import java.util.List;
 public class TypesController {
     @Autowired
     private TypesService typesService;
-
+    @GetMapping("goodAdd")
+    public String goodAdd(Model model,HttpSession session){
+        session.setAttribute("view","admin/good_add");
+        List<Types> typesList = typesService.getAll();
+        model.addAttribute("typeList",typesList);
+        return "admin/index";
+    }
     @GetMapping("typeList")
     public String typeList(Model model, HttpSession session){
         List<Types> typesList = typesService.getAll();

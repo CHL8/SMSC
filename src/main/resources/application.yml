@@ -40,3 +40,8 @@ spring:
 logging:
   level:
     com.hp.mapper: debug
+pagehelper:
+  auto-dialect: true
+  reasonable: true
+  support-methods-arguments: true
+  params: count=countSql

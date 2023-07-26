@@ -3,4 +3,30 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.hp.mapper.GoodsMapper">
 
+    <select id="getAll" resultMap="GoodType">
+        SELECT gt.*,ts.`name` AS typename,ts.`num` FROM
+           (SELECT  g.*,t.type,t.good_id
+            FROM`goods` g LEFT JOIN `tops` t ON g.`id`=t.`good_id`) gt
+               JOIN `types` ts ON gt.type_id = ts.`id`
+    </select>
+    <resultMap id="GoodType" type="com.hp.pojo.Goods">
+        <id column="id" property="id"/>
+        <result column="cover" property="cover"/>
+        <result column="name" property="name"/>
+        <result column="intro" property="intro"/>
+        <result column="spec" property="spec"/>
+        <result column="price" property="price"/>
+        <result column="stock" property="stock"/>
+        <result column="sales" property="sales"/>
+        <result column="content" property="content"/>
+        <result column="typeId" property="typeId"/>
+        <association property="tops" javaType="com.hp.pojo.Tops">
+            <result column="type" property="type"/>
+            <result column="good_id" property="goodId"/>
+        </association>
+        <association property="types" javaType="com.hp.pojo.Types">
+            <result column="typename" property="name"/>
+            <result column="num" property="num"/>
+        </association>
+    </resultMap>
 </mapper>

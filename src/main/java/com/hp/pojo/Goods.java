@@ -20,4 +20,6 @@ public class Goods {
     private Integer sales;
     private String content;
     private Integer typeId;
+    private Types types;
+    private Tops tops;
 }

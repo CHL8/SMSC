@@ -44,5 +44,11 @@ public class AdminsController {
         session.setAttribute("admin",login);
         return "redirect:/admin/typeList";
     }
+    @GetMapping("adminList")
+    public String adminList(Model model,HttpSession session){
+
+        session.setAttribute("view","admin/admin_list");
+        return "admin/index";
+    }
 }
 
